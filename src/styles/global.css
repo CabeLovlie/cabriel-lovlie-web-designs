@@ -1,3 +1,13 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+:root {
+  --ink:          #1e1e1e;
+  --paper:        #f5f2ed;
+  --evergreen:    #2a5c45;
+  --evergreen-dk: #1d4232;
+  --evergreen-lt: #eaf2ed;
+  --copper:       #a0693a;
+  --copper-lt:    #fdf3eb;
+  --muted:        #6b6560;
+  --rule:         #ddd8d1;
+}
