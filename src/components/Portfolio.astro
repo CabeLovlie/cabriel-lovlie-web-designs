@@ -19,25 +19,27 @@ import {
     <h3 class="mt-10 text-lg font-semibold text-white md:text-xl">
       Featured Example Sites
     </h3>
-    <div class="mt-6 grid gap-8 lg:grid-cols-2 lg:gap-10">
+    <div class="mt-6 grid items-stretch gap-8 lg:grid-cols-2 lg:gap-10">
       {
         featuredPortfolioItems.map((item) => (
-          <article class="overflow-hidden rounded-lg bg-[var(--evergreen)] shadow-[0_12px_32px_rgba(0,0,0,0.3)] ring-1 ring-white/10">
-            <img
-              src={item.screenshot}
-              alt={item.screenshotAlt}
-              width={item.screenshotWidth}
-              height={item.screenshotHeight}
-              loading="lazy"
-              class="portfolio-screenshot"
-            />
+          <article class="portfolio-card portfolio-card--featured">
+            <div class="portfolio-screenshot-wrap">
+              <img
+                src={item.screenshot}
+                alt={item.screenshotAlt}
+                width={item.screenshotWidth}
+                height={item.screenshotHeight}
+                loading="lazy"
+                class="portfolio-screenshot"
+              />
+            </div>
 
-            <div class="p-6 md:p-8">
+            <div class="portfolio-card__body">
               <div class="portfolio-pills">
-                <span class="rounded-full bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-[var(--warm-white)]">
+                <span class="portfolio-pill portfolio-pill--concept">
                   Portfolio Concept
                 </span>
-                <span class="rounded-full bg-[var(--copper-lt)] px-3 py-1 text-xs font-semibold uppercase tracking-wide text-[var(--copper)]">
+                <span class="portfolio-pill portfolio-pill--category">
                   {item.category}
                 </span>
               </div>
@@ -57,7 +59,7 @@ import {
                 href={item.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="btn-outline btn-outline--white mt-6"
+                class="btn-outline btn-outline--white portfolio-card__cta"
               >
                 View Example
               </a>
@@ -70,39 +72,41 @@ import {
     <h3 class="mt-14 text-base font-semibold text-[var(--warm-white)] md:text-lg">
       Additional Portfolio Concepts
     </h3>
-    <div class="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
+    <div class="mt-6 grid items-stretch gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
       {
         secondaryPortfolioItems.map((item) => (
-          <article class="overflow-hidden rounded-lg bg-[var(--evergreen)] shadow-[0_6px_20px_rgba(0,0,0,0.2)]">
-            <img
-              src={item.screenshot}
-              alt={item.screenshotAlt}
-              width={item.screenshotWidth}
-              height={item.screenshotHeight}
-              loading="lazy"
-              class="portfolio-screenshot"
-            />
+          <article class="portfolio-card portfolio-card--secondary">
+            <div class="portfolio-screenshot-wrap">
+              <img
+                src={item.screenshot}
+                alt={item.screenshotAlt}
+                width={item.screenshotWidth}
+                height={item.screenshotHeight}
+                loading="lazy"
+                class="portfolio-screenshot"
+              />
+            </div>
 
-            <div class="p-4 md:p-5">
+            <div class="portfolio-card__body">
               <div class="portfolio-pills">
-                <span class="rounded-full bg-white/10 px-2.5 py-0.5 text-[0.65rem] font-semibold uppercase tracking-wide text-[var(--warm-white)]">
+                <span class="portfolio-pill portfolio-pill--concept">
                   Portfolio Concept
                 </span>
-                <span class="rounded-full bg-[var(--copper-lt)] px-2.5 py-0.5 text-[0.65rem] font-semibold uppercase tracking-wide text-[var(--copper)]">
+                <span class="portfolio-pill portfolio-pill--category">
                   {item.category}
                 </span>
               </div>
               <h3 class="font-heading mt-3 text-lg font-semibold text-white">
                 {item.name}
               </h3>
-              <p class="mt-2 text-sm leading-relaxed text-[var(--warm-white)]">
+              <p class="mt-2 flex-1 text-sm leading-relaxed text-[var(--warm-white)]">
                 {item.description}
               </p>
               <a
                 href={item.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="btn-outline btn-outline--white mt-4 text-sm"
+                class="btn-outline btn-outline--white portfolio-card__cta text-sm"
               >
                 View Example
               </a>

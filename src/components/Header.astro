@@ -11,13 +11,13 @@ import { navLinks } from "../data/site";
       <img
         src="/images/cl-web-designs-logo.png"
         alt="Cabriel Lovlie Web Design"
-        width="200"
-        height="52"
+        width="180"
+        height="44"
         loading="eager"
       />
     </a>
 
-    <nav class="header-nav hidden md:flex" aria-label="Main navigation">
+    <nav class="header-nav hidden lg:flex" aria-label="Main navigation">
       {
         navLinks.map((link) => (
           <a
@@ -32,7 +32,7 @@ import { navLinks } from "../data/site";
 
     <a
       href="#contact"
-      class="header-cta btn-primary btn-primary--copper hidden md:inline-flex"
+      class="header-cta btn-primary btn-primary--copper hidden lg:inline-flex"
     >
       Get a Free Website Review
     </a>
@@ -40,7 +40,7 @@ import { navLinks } from "../data/site";
     <button
       type="button"
       id="menu-toggle"
-      class="header-menu-toggle flex h-10 w-10 items-center justify-center justify-self-end rounded-md border border-[var(--rule)] bg-white md:hidden"
+      class="header-menu-toggle flex h-11 w-11 items-center justify-center justify-self-end rounded-md border border-[var(--rule)] bg-white lg:hidden"
       aria-expanded="false"
       aria-controls="mobile-menu"
       aria-label="Open menu"
@@ -84,7 +84,7 @@ import { navLinks } from "../data/site";
 
   <nav
     id="mobile-menu"
-    class="hidden border-t border-[var(--rule)] bg-[var(--paper)] px-5 py-4 md:hidden"
+    class="hidden border-t border-[var(--rule)] bg-[var(--paper)] px-5 py-4 lg:hidden"
     aria-label="Mobile navigation"
   >
     <ul class="flex flex-col gap-1">
