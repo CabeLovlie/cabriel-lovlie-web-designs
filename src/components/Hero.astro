@@ -1,4 +1,30 @@
-<section id="hero" class="section-padding bg-[var(--paper)]">
+---
+const slides = [
+  {
+    img: "/images/portfolio/northwest-detail-desktop.png",
+    alt: "Northwest Detail Studio homepage",
+    href: "https://example.com",
+    label: "Northwest Detail Studio",
+  },
+  {
+    img: "/images/portfolio/cascade-concrete-desktop.png",
+    alt: "Cascade Concrete Company homepage",
+    href: "https://example.com",
+    label: "Cascade Concrete Company",
+  },
+  {
+    img: "/images/portfolio/cedar-peak-roofing-desktop.png",
+    alt: "Cedar Peak Roofing homepage",
+    href: "https://example.com",
+    label: "Cedar Peak Roofing",
+  },
+];
+---
+
+<section
+  id="hero"
+  class="relative flex min-h-[88vh] items-center bg-[var(--paper)] section-padding"
+>
   <div class="container-main">
     <div class="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
       <div>
@@ -28,35 +54,215 @@
         </p>
       </div>
 
-      <div class="hero-preview" aria-hidden="true">
+      <div
+        class="hero-carousel"
+        data-carousel
+        data-interval="5000"
+        aria-roledescription="carousel"
+        aria-label="Example websites"
+      >
         <p class="preview-label">Sample service business sites</p>
-        <div class="preview-stack">
-          <img
-            src="/images/portfolio/northwest-detail-desktop.png"
-            alt="Screenshot of the Northwest Detail Studio homepage."
-            class="preview-front"
-            width="600"
-            height="375"
-            loading="eager"
-          />
-          <img
-            src="/images/portfolio/cascade-concrete-desktop.png"
-            alt="Screenshot of the Cascade Concrete Company homepage."
-            class="preview-mid"
-            width="600"
-            height="375"
-            loading="lazy"
-          />
-          <img
-            src="/images/portfolio/cedar-peak-roofing-desktop.png"
-            alt="Screenshot of the Cedar Peak Roofing homepage."
-            class="preview-back"
-            width="600"
-            height="375"
-            loading="lazy"
-          />
+
+        <div class="carousel-viewport">
+          {
+            slides.map((slide, i) => (
+              <a
+                href={slide.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="carousel-slide"
+                data-slide
+                data-active={i === 0 ? "true" : "false"}
+                aria-hidden={i === 0 ? "false" : "true"}
+                tabindex={i === 0 ? "0" : "-1"}
+              >
+                <img
+                  src={slide.img}
+                  alt={slide.alt}
+                  width="1000"
+                  height="625"
+                  loading={i === 0 ? "eager" : "lazy"}
+                />
+                <span class="carousel-caption">{slide.label}</span>
+              </a>
+            ))
+          }
+
+          <button
+            class="carousel-arrow carousel-arrow--prev"
+            data-prev
+            aria-label="Previous example">&#8249;</button
+          >
+          <button
+            class="carousel-arrow carousel-arrow--next"
+            data-next
+            aria-label="Next example">&#8250;</button
+          >
         </div>
       </div>
     </div>
   </div>
+
+  <a href="#problem" class="scroll-chevron" aria-label="Scroll to next section">
+    <svg
+      viewBox="0 0 24 24"
+      width="32"
+      height="32"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <polyline points="6 9 12 15 18 9"></polyline>
+    </svg>
+  </a>
 </section>
+
+<style>
+  .hero-carousel {
+    width: 100%;
+  }
+  .preview-label {
+    margin-bottom: 0.75rem;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .carousel-viewport {
+    position: relative;
+    aspect-ratio: 1000 / 625;
+    width: 100%;
+    border-radius: 0.875rem;
+    overflow: hidden;
+    box-shadow: 0 18px 48px rgba(0, 0, 0, 0.16);
+  }
+  .carousel-slide {
+    position: absolute;
+    inset: 0;
+    display: block;
+    opacity: 0;
+    transition: opacity 0.7s ease;
+    pointer-events: none;
+  }
+  .carousel-slide[data-active="true"] {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .carousel-caption {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0.6rem 0.9rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0));
+  }
+  .carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    display: grid;
+    place-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border: none;
+    border-radius: 9999px;
+    background: rgba(255, 255, 255, 0.85);
+    color: var(--ink);
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+  .carousel-arrow:hover {
+    background: #fff;
+  }
+  .carousel-arrow--prev {
+    left: 0.75rem;
+  }
+  .carousel-arrow--next {
+    right: 0.75rem;
+  }
+
+  .scroll-chevron {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--muted);
+    animation: chevron-bounce 1.8s ease-in-out infinite;
+  }
+  @keyframes chevron-bounce {
+    0%,
+    100% {
+      transform: translateX(-50%) translateY(0);
+    }
+    50% {
+      transform: translateX(-50%) translateY(6px);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .carousel-slide {
+      transition: none;
+    }
+    .scroll-chevron {
+      animation: none;
+    }
+  }
+</style>
+
+<script>
+  document.querySelectorAll("[data-carousel]").forEach((root) => {
+    const slides = Array.from(root.querySelectorAll("[data-slide]"));
+    if (slides.length <= 1) return;
+    const interval = Number(root.getAttribute("data-interval")) || 5000;
+    let current = 0;
+    let timer;
+
+    const show = (next) => {
+      slides[current].setAttribute("data-active", "false");
+      slides[current].setAttribute("aria-hidden", "true");
+      slides[current].setAttribute("tabindex", "-1");
+      current = (next + slides.length) % slides.length;
+      slides[current].setAttribute("data-active", "true");
+      slides[current].setAttribute("aria-hidden", "false");
+      slides[current].setAttribute("tabindex", "0");
+    };
+
+    const start = () => {
+      timer = setInterval(() => show(current + 1), interval);
+    };
+    const stop = () => clearInterval(timer);
+    const reset = () => {
+      stop();
+      start();
+    };
+
+    root.querySelector("[data-next]")?.addEventListener("click", (e) => {
+      e.preventDefault();
+      show(current + 1);
+      reset();
+    });
+    root.querySelector("[data-prev]")?.addEventListener("click", (e) => {
+      e.preventDefault();
+      show(current - 1);
+      reset();
+    });
+
+    root.addEventListener("mouseenter", stop);
+    root.addEventListener("mouseleave", start);
+
+    start();
+  });
+</script>
