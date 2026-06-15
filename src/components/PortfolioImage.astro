@@ -1,0 +1,37 @@
+---
+interface Props {
+  name: string;
+  src: string;
+  class?: string;
+}
+
+const { name, src, class: className = "" } = Astro.props;
+const alt = `${name} example website`;
+---
+
+<!-- Replace div with <img src="..." alt="..."> when screenshot is ready -->
+<div
+  class:list={["portfolio-image", className]}
+  data-screenshot={src}
+  data-name={name}
+>
+  <div class="portfolio-placeholder" aria-label={`${name} website preview`}>
+    <span>{name}</span>
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll<HTMLElement>(".portfolio-image").forEach((slot) => {
+    const src = slot.dataset.screenshot;
+    const name = slot.dataset.name;
+    if (!src || !name) return;
+
+    const img = new Image();
+    img.onload = () => {
+      img.alt = `${name} example website`;
+      img.className = "w-full h-full object-cover rounded-md aspect-[16/10]";
+      slot.replaceChildren(img);
+    };
+    img.src = src;
+  });
+</script>

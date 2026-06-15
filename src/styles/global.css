@@ -10,4 +10,171 @@
   --copper-lt:    #fdf3eb;
   --muted:        #6b6560;
   --rule:         #ddd8d1;
+  --warm-white:   #e8ebe9;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+  color: var(--ink);
+  background-color: var(--paper);
+}
+
+.font-heading {
+  font-family: "Lora", Georgia, serif;
+}
+
+:focus-visible {
+  outline: 2px solid var(--evergreen);
+  outline-offset: 2px;
+}
+
+.section-padding {
+  padding-block: 4.5rem;
+  padding-inline: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .section-padding {
+    padding-block: 6rem;
+    padding-inline: 2rem;
+  }
+}
+
+.container-main {
+  width: 100%;
+  max-width: 72rem;
+  margin-inline: auto;
+}
+
+.portfolio-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 16 / 10;
+  background: var(--evergreen-lt);
+  border-radius: 0.375rem;
+  overflow: hidden;
+}
+
+.portfolio-placeholder span {
+  font-family: "Lora", Georgia, serif;
+  color: var(--evergreen);
+  font-size: 0.95rem;
+  text-align: center;
+  padding: 1rem;
+  line-height: 1.4;
+}
+
+@media (min-width: 768px) {
+  .portfolio-placeholder span {
+    font-size: 1.05rem;
+  }
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.375rem;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  text-decoration: none;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.btn-primary--evergreen {
+  background-color: var(--evergreen);
+  color: white;
+}
+
+.btn-primary--evergreen:hover {
+  background-color: var(--evergreen-dk);
+}
+
+.btn-primary--copper {
+  background-color: var(--copper);
+  color: white;
+}
+
+.btn-primary--copper:hover {
+  background-color: #8a5a32;
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.375rem;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  text-decoration: none;
+  border: 2px solid var(--evergreen);
+  color: var(--evergreen);
+  background: transparent;
+  transition: background-color 0.2s, color 0.2s;
+  cursor: pointer;
+}
+
+.btn-outline:hover {
+  background-color: var(--evergreen-lt);
+}
+
+.btn-outline--white {
+  border-color: white;
+  color: white;
+}
+
+.btn-outline--white:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--rule);
+  border-radius: 0.375rem;
+  background: white;
+  font-size: 1rem;
+  color: var(--ink);
+  transition: border-color 0.2s;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--evergreen);
+  box-shadow: 0 0 0 2px var(--evergreen-lt);
+}
+
+.form-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 0.375rem;
+}
+
+.header-scrolled {
+  box-shadow: 0 1px 8px rgba(30, 30, 30, 0.08);
 }

@@ -1,0 +1,149 @@
+---
+import { navLinks, site } from "../data/site";
+---
+
+<header
+  id="site-header"
+  class="sticky top-0 z-50 bg-[var(--paper)] transition-shadow duration-200"
+>
+  <div class="container-main flex items-center justify-between gap-4 px-5 py-4 md:px-8">
+    <a
+      href="#hero"
+      class="font-heading text-lg font-semibold text-[var(--evergreen)] no-underline md:text-xl"
+    >
+      {site.brand}
+    </a>
+
+    <nav class="hidden items-center gap-6 md:flex" aria-label="Main navigation">
+      {
+        navLinks.map((link) => (
+          <a
+            href={link.href}
+            class="text-sm font-medium text-[var(--ink)] no-underline transition-colors hover:text-[var(--evergreen)]"
+          >
+            {link.label}
+          </a>
+        ))
+      }
+      <a href="#contact" class="btn-primary btn-primary--copper">
+        Request Review
+      </a>
+    </nav>
+
+    <button
+      type="button"
+      id="menu-toggle"
+      class="flex h-10 w-10 items-center justify-center rounded-md border border-[var(--rule)] bg-white md:hidden"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+      aria-label="Open menu"
+    >
+      <svg
+        id="menu-icon-open"
+        xmlns="http://www.w3.org/2000/svg"
+        width="22"
+        height="22"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+      >
+        <line x1="4" y1="6" x2="20" y2="6"></line>
+        <line x1="4" y1="12" x2="20" y2="12"></line>
+        <line x1="4" y1="18" x2="20" y2="18"></line>
+      </svg>
+      <svg
+        id="menu-icon-close"
+        class="hidden"
+        xmlns="http://www.w3.org/2000/svg"
+        width="22"
+        height="22"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+      >
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+  </div>
+
+  <nav
+    id="mobile-menu"
+    class="hidden border-t border-[var(--rule)] bg-[var(--paper)] px-5 py-4 md:hidden"
+    aria-label="Mobile navigation"
+  >
+    <ul class="flex flex-col gap-1">
+      {
+        navLinks.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              class="mobile-nav-link block rounded-md px-3 py-2.5 text-base font-medium text-[var(--ink)] no-underline hover:bg-[var(--evergreen-lt)]"
+            >
+              {link.label}
+            </a>
+          </li>
+        ))
+      }
+      <li class="pt-2">
+        <a
+          href="#contact"
+          class="mobile-nav-link btn-primary btn-primary--copper w-full"
+        >
+          Request Review
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<script>
+  const header = document.getElementById("site-header");
+  const toggle = document.getElementById("menu-toggle");
+  const menu = document.getElementById("mobile-menu");
+  const iconOpen = document.getElementById("menu-icon-open");
+  const iconClose = document.getElementById("menu-icon-close");
+  const mobileLinks = document.querySelectorAll(".mobile-nav-link");
+
+  function closeMenu() {
+    menu?.classList.add("hidden");
+    toggle?.setAttribute("aria-expanded", "false");
+    toggle?.setAttribute("aria-label", "Open menu");
+    iconOpen?.classList.remove("hidden");
+    iconClose?.classList.add("hidden");
+  }
+
+  toggle?.addEventListener("click", () => {
+    const isOpen = !menu?.classList.contains("hidden");
+    if (isOpen) {
+      closeMenu();
+    } else {
+      menu?.classList.remove("hidden");
+      toggle.setAttribute("aria-expanded", "true");
+      toggle.setAttribute("aria-label", "Close menu");
+      iconOpen?.classList.add("hidden");
+      iconClose?.classList.remove("hidden");
+    }
+  });
+
+  mobileLinks.forEach((link) => {
+    link.addEventListener("click", closeMenu);
+  });
+
+  window.addEventListener("scroll", () => {
+    if (!header) return;
+    if (window.scrollY > 50) {
+      header.classList.add("header-scrolled");
+    } else {
+      header.classList.remove("header-scrolled");
+    }
+  });
+</script>

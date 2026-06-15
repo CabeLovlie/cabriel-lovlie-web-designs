@@ -1,0 +1,36 @@
+---
+import { navLinks, site } from "../data/site";
+---
+
+<footer class="bg-[var(--evergreen-dk)] px-5 py-10 md:px-8 md:py-12">
+  <div class="container-main text-center md:text-left">
+    <p class="font-heading text-xl font-semibold text-white">
+      {site.brand}
+    </p>
+    <p class="mt-2 text-sm text-[var(--warm-white)] md:text-base">
+      Simple, professional websites for contractors and local service
+      businesses.
+    </p>
+
+    <nav class="mt-6" aria-label="Footer navigation">
+      <ul class="flex flex-wrap justify-center gap-x-5 gap-y-2 md:justify-start">
+        {
+          navLinks.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class="text-sm text-[var(--warm-white)] no-underline transition-colors hover:text-white md:text-base"
+              >
+                {link.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <p class="mt-8 text-sm text-[var(--warm-white)]/80">
+      © 2026 Cabriel Lovlie Web Design
+    </p>
+  </div>
+</footer>
