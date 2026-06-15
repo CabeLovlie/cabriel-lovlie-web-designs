@@ -17,13 +17,13 @@ import { practicalFeatures } from "../data/services";
 
     <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
       {
-        practicalFeatures.map(({ title, screenshot, icon: Icon }) => (
+        practicalFeatures.map(({ title, screenshot }) => (
           <article class="rounded-lg border border-[var(--rule)] bg-white p-5 md:p-6">
             <h3 class="text-base font-semibold text-[var(--ink)] md:text-lg">
               {title}
             </h3>
             {
-              screenshot ? (
+              screenshot && (
                 <img
                   src={screenshot.src}
                   alt={screenshot.alt}
@@ -32,18 +32,7 @@ import { practicalFeatures } from "../data/services";
                   loading="lazy"
                   class={screenshot.class ?? "services-screenshot"}
                 />
-              ) : Icon ? (
-                <div class="services-icon-card mt-4 flex flex-col items-center justify-center rounded-md border border-dashed border-[var(--rule)] bg-[var(--paper)] px-4 py-10 text-center">
-                  <Icon
-                    class="h-10 w-10 text-[var(--evergreen)]"
-                    aria-hidden="true"
-                  />
-                  <p class="mt-3 text-sm leading-relaxed text-[var(--muted)]">
-                    Page titles, descriptions, headings, and local service
-                    wording set up to help customers find you.
-                  </p>
-                </div>
-              ) : null
+              )
             }
           </article>
         ))

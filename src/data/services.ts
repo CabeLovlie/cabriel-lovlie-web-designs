@@ -1,6 +1,3 @@
-import type { LucideIcon } from "@lucide/astro";
-import { Search } from "@lucide/astro";
-
 export interface ServiceScreenshot {
   src: string;
   alt: string;
@@ -12,15 +9,14 @@ export interface ServiceScreenshot {
 export interface PracticalFeature {
   title: string;
   screenshot?: ServiceScreenshot;
-  icon?: LucideIcon;
 }
 
 export const practicalFeatures: PracticalFeature[] = [
   {
     title: "Clear service sections",
     screenshot: {
-      src: "/images/portfolio/cascade-concrete-desktop.png",
-      alt: "Example of clear service sections on a local contractor website.",
+      src: "/images/portfolio/northwest-detail-services-desktop.png",
+      alt: "Example of a clear services page on a local service business website, showing distinct service blocks.",
       width: 400,
       height: 250,
       class: "services-screenshot",
@@ -68,6 +64,12 @@ export const practicalFeatures: PracticalFeature[] = [
   },
   {
     title: "Local SEO / service-area clarity",
-    icon: Search,
+    screenshot: {
+      src: "/images/portfolio/ridgeline-service-area-desktop.png",
+      alt: "Example of a service-area section on a local contractor website, showing the cities and region served.",
+      width: 400,
+      height: 250,
+      class: "services-screenshot",
+    },
   },
 ];
