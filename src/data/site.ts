@@ -5,7 +5,7 @@ export const pricingIncludes: string[] = [
   "Call, message, or estimate request buttons",
   "Contact form setup",
   "Service area section",
-  "Basic SEO title and description setup",
+  "Basic search setup: page titles, descriptions, headings, and local service wording",
   "Help connecting the domain and launching the site",
   "Post-launch testing and small cleanup fixes",
 ];

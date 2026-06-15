@@ -7,7 +7,7 @@ export const problemCards: ProblemCard[] = [
   {
     title: "Broken or missing website",
     description:
-      "Customers can't find you, or land on a dead page and move on.",
+      "Customers search for you, hit a broken or missing site, and move on.",
   },
   {
     title: "Outdated mobile experience",

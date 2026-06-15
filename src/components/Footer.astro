@@ -1,40 +1,60 @@
 ---
-import { navLinks } from "../data/site";
+import { navLinks, site } from "../data/site";
 ---
 
-<footer class="bg-[var(--evergreen-dk)] px-5 py-10 md:px-8 md:py-12">
-  <div class="container-main text-center md:text-left">
-    <a href="/" class="brand-logo inline-block">
-      <img
-        src="/images/cl-web-designs-logo.png"
-        alt="Cabriel Lovlie Web Design"
-        height="36"
-        loading="lazy"
-      />
-    </a>
-    <p class="mt-2 text-sm text-[var(--warm-white)] md:text-base">
-      Simple, professional websites for local service businesses.
-    </p>
+<footer class="footer bg-[var(--evergreen-dk)] px-5 py-12 md:px-8 md:py-16">
+  <div class="container-main">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/" class="brand-logo brand-logo--footer inline-block">
+          <img
+            src="/images/cl-web-designs-logo.png"
+            alt="Cabriel Lovlie Web Design"
+            width="200"
+            height="48"
+            loading="lazy"
+          />
+        </a>
+        <p class="mt-4 text-sm leading-relaxed text-[var(--warm-white)] md:text-base">
+          Simple, professional websites for local service businesses.
+        </p>
+        <p class="mt-3 text-sm leading-relaxed text-[var(--warm-white)]/80">
+          Serving Auburn, Federal Way, Kent, and the greater South King County
+          area.
+        </p>
+      </div>
 
-    <nav class="mt-6" aria-label="Footer navigation">
-      <ul class="flex flex-wrap justify-center gap-x-5 gap-y-2 md:justify-start">
-        {
-          navLinks.map((link) => (
-            <li>
-              <a
-                href={link.href}
-                class="text-sm text-[var(--warm-white)] no-underline transition-colors hover:text-white md:text-base"
-              >
-                {link.label}
-              </a>
-            </li>
-          ))
-        }
-      </ul>
-    </nav>
+      <nav aria-label="Footer navigation">
+        <h2 class="footer-heading">Quick links</h2>
+        <ul class="footer-links">
+          {
+            navLinks.map((link) => (
+              <li>
+                <a href={link.href}>{link.label}</a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
 
-    <p class="mt-8 text-sm text-[var(--warm-white)]/80">
-      © 2026 Cabriel Lovlie Web Design
-    </p>
+      <div>
+        <h2 class="footer-heading">Contact</h2>
+        <ul class="footer-links">
+          <li>
+            <a href={site.phoneHref}>{site.phone}</a>
+          </li>
+          <li>
+            <a href={site.emailHref}>{site.email}</a>
+          </li>
+          <li>
+            <a href="#contact" class="footer-cta">Get a Free Website Review</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 Cabriel Lovlie Web Design</p>
+    </div>
   </div>
 </footer>

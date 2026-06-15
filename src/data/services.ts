@@ -1,12 +1,5 @@
 import type { LucideIcon } from "@lucide/astro";
-import {
-  LayoutList,
-  Smartphone,
-  Images,
-  FileText,
-  Search,
-  Wrench,
-} from "@lucide/astro";
+import { Search } from "@lucide/astro";
 
 export interface ServiceScreenshot {
   src: string;
@@ -16,23 +9,25 @@ export interface ServiceScreenshot {
   class?: string;
 }
 
-export interface ServiceFeature {
-  icon: LucideIcon;
+export interface PracticalFeature {
   title: string;
-  body: string;
   screenshot?: ServiceScreenshot;
+  icon?: LucideIcon;
 }
 
-export const serviceFeatures: ServiceFeature[] = [
+export const practicalFeatures: PracticalFeature[] = [
   {
-    icon: LayoutList,
     title: "Clear service sections",
-    body: "Makes it easy for customers to understand what you do and why to call you.",
+    screenshot: {
+      src: "/images/portfolio/cascade-concrete-desktop.png",
+      alt: "Example of clear service sections on a local contractor website.",
+      width: 400,
+      height: 250,
+      class: "services-screenshot",
+    },
   },
   {
-    icon: Smartphone,
     title: "Mobile-friendly layout",
-    body: "Looks right and works cleanly on phones, tablets, and desktops.",
     screenshot: {
       src: "/images/portfolio/northwest-detail-mobile.png",
       alt: "Mobile screenshot of a local service business website showing a clean, phone-friendly layout.",
@@ -42,9 +37,7 @@ export const serviceFeatures: ServiceFeature[] = [
     },
   },
   {
-    icon: Images,
     title: "Project photo galleries",
-    body: "Shows real work and gives customers confidence before they reach out.",
     screenshot: {
       src: "/images/portfolio/northwest-detail-desktop.png",
       alt: "Example of a project photo gallery section on a local service business website.",
@@ -54,9 +47,7 @@ export const serviceFeatures: ServiceFeature[] = [
     },
   },
   {
-    icon: FileText,
     title: "Quote and contact forms",
-    body: "Gives visitors a direct way to request pricing or ask a question.",
     screenshot: {
       src: "/images/portfolio/cascade-concrete-desktop.png",
       alt: "Example of an estimate request form on a local contractor website.",
@@ -66,13 +57,17 @@ export const serviceFeatures: ServiceFeature[] = [
     },
   },
   {
-    icon: Search,
-    title: "Local SEO basics",
-    body: "Page titles, descriptions, headings, and local service language set up correctly.",
+    title: "Trust-building sections",
+    screenshot: {
+      src: "/images/portfolio/cedar-peak-roofing-desktop.png",
+      alt: "Example of trust-building sections on a local service business website.",
+      width: 400,
+      height: 250,
+      class: "services-screenshot",
+    },
   },
   {
-    icon: Wrench,
-    title: "Domain and launch support",
-    body: "Help connecting your domain, testing the form, and getting the site live.",
+    title: "Local SEO / service-area clarity",
+    icon: Search,
   },
 ];

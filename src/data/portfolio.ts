@@ -17,7 +17,7 @@ export const featuredPortfolioItems: PortfolioItem[] = [
     name: "Northwest Detail Studio",
     category: "Auto Detailing",
     description:
-      "A polished service business site with strong visuals, clear packages, trust-building sections, and easy booking and contact paths.",
+      "A visual-first auto detailing concept built around service packages, condition guidance, gallery proof, and easy quote requests.",
     bestFor:
       "A service business that needs strong visuals, clear packages, and easy contact paths.",
     url: "https://northwest-detail-studio.netlify.app/",
@@ -32,7 +32,7 @@ export const featuredPortfolioItems: PortfolioItem[] = [
     name: "Cascade Concrete Company",
     category: "Concrete Contractor",
     description:
-      "A contractor-style site with clear services, project photos, credibility sections, service area, and estimate requests.",
+      "A contractor-style site built around clear services, project photos, local credibility, and simple estimate requests.",
     bestFor:
       "A contractor that needs service clarity, project photos, and estimate requests.",
     url: "https://cascade-concrete-company.netlify.app/",

@@ -6,17 +6,18 @@ import { navLinks } from "../data/site";
   id="site-header"
   class="sticky top-0 z-50 bg-[var(--paper)] transition-shadow duration-200"
 >
-  <div class="container-main flex items-center justify-between gap-4 px-5 py-4 md:px-8">
+  <div class="header-inner container-main px-5 py-4 md:px-8">
     <a href="/" class="brand-logo">
       <img
         src="/images/cl-web-designs-logo.png"
         alt="Cabriel Lovlie Web Design"
-        height="40"
+        width="200"
+        height="52"
         loading="eager"
       />
     </a>
 
-    <nav class="hidden items-center gap-6 md:flex" aria-label="Main navigation">
+    <nav class="header-nav hidden md:flex" aria-label="Main navigation">
       {
         navLinks.map((link) => (
           <a
@@ -27,15 +28,19 @@ import { navLinks } from "../data/site";
           </a>
         ))
       }
-      <a href="#contact" class="btn-primary btn-primary--copper">
-        Get a Free Website Review
-      </a>
     </nav>
+
+    <a
+      href="#contact"
+      class="header-cta btn-primary btn-primary--copper hidden md:inline-flex"
+    >
+      Get a Free Website Review
+    </a>
 
     <button
       type="button"
       id="menu-toggle"
-      class="flex h-10 w-10 items-center justify-center rounded-md border border-[var(--rule)] bg-white md:hidden"
+      class="header-menu-toggle flex h-10 w-10 items-center justify-center justify-self-end rounded-md border border-[var(--rule)] bg-white md:hidden"
       aria-expanded="false"
       aria-controls="mobile-menu"
       aria-label="Open menu"
