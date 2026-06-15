@@ -5,38 +5,55 @@ export interface PortfolioItem {
   description: string;
   url: string;
   screenshot: string;
+  bestFor?: string;
 }
 
-export const portfolioItems: PortfolioItem[] = [
+export const featuredPortfolioItems: PortfolioItem[] = [
   {
     id: 1,
-    name: "Cascade Concrete Co.",
-    category: "Concrete Contractor",
+    name: "Northwest Detail Studio",
+    category: "Auto Detailing",
     description:
-      "A polished concrete contractor concept with services, project gallery, process, reviews, service area, and estimate form.",
-    url: "https://cascade-concrete-company.netlify.app/",
-    screenshot: "/images/cascade-screenshot.jpg",
+      "A polished service business site with strong visuals, clear packages, trust-building sections, and easy booking and contact paths.",
+    bestFor:
+      "A service business that needs strong visuals, clear packages, and easy contact paths.",
+    url: "https://northwest-detail-studio.netlify.app/",
+    screenshot: "/images/northwest-detail-screenshot.jpg",
   },
   {
     id: 2,
+    name: "Cascade Concrete Company",
+    category: "Concrete Contractor",
+    description:
+      "A contractor-style site with clear services, project photos, credibility sections, service area, and estimate requests.",
+    bestFor:
+      "A contractor that needs service clarity, project photos, and estimate requests.",
+    url: "https://cascade-concrete-company.netlify.app/",
+    screenshot: "/images/cascade-screenshot.jpg",
+  },
+];
+
+export const secondaryPortfolioItems: PortfolioItem[] = [
+  {
+    id: 3,
     name: "Ridgeline Concrete Co.",
     category: "Concrete & Stamped Concrete",
     description:
-      "A rugged concept focused on bold branding, before-and-after photos, stamped concrete, and a strong quote flow.",
+      "A rugged concept focused on bold branding, before-and-after photos, and a strong quote flow.",
     url: "https://ridgeline-concrete-company.netlify.app/",
     screenshot: "/images/ridgeline-screenshot.jpg",
   },
   {
-    id: 3,
+    id: 4,
     name: "Cedar Peak Roofing",
     category: "Roofing Contractor",
     description:
-      "A warm roofing concept built around documented inspections, homeowner trust, services, and estimate requests.",
+      "A roofing concept built around homeowner trust, documented inspections, and estimate requests.",
     url: "https://cedar-peak-roofing.netlify.app/",
     screenshot: "/images/cedar-peak-screenshot.jpg",
   },
   {
-    id: 4,
+    id: 5,
     name: "Northwest Home Renewal",
     category: "Remodeling Contractor",
     description:
@@ -46,7 +63,10 @@ export const portfolioItems: PortfolioItem[] = [
   },
 ];
 
-export const heroScreenshots = portfolioItems.map((item) => ({
+export const heroScreenshots = [
+  ...featuredPortfolioItems,
+  ...secondaryPortfolioItems.slice(0, 2),
+].map((item) => ({
   name: item.name,
   src: item.screenshot,
 }));

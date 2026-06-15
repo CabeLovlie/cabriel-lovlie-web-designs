@@ -1,3 +1,34 @@
+export const pricingIncludes: string[] = [
+  "Clean, mobile-friendly homepage",
+  "Service sections or service pages",
+  "Project gallery or work examples",
+  "Call, message, or estimate request buttons",
+  "Contact form setup",
+  "Service area section",
+  "Basic SEO title and description setup",
+  "Help connecting the domain and launching the site",
+  "Post-launch testing and small cleanup fixes",
+];
+
+export const navLinks = [
+  { label: "Examples", href: "#portfolio" },
+  { label: "Services", href: "#services" },
+  { label: "Process", href: "#process" },
+  { label: "Pricing", href: "#pricing" },
+  { label: "Contact", href: "#contact" },
+];
+
+export const site = {
+  brand: "Cabriel Lovlie Web Design",
+  phone: "425-293-3543",
+  phoneHref: "tel:+14252933543",
+  email: "CabeKLovlie@gmail.com",
+  emailHref: "mailto:CabeKLovlie@gmail.com",
+  title: "Websites for Local Service Businesses | Cabriel Lovlie Web Design",
+  description:
+    "Clean, mobile-friendly websites for local service businesses and small businesses with broken, outdated, or missing websites. Portfolio examples, estimate forms, and launch support.",
+};
+
 export interface ProcessStep {
   number: number;
   title: string;
@@ -26,32 +57,3 @@ export const processSteps: ProcessStep[] = [
     body: "I connect the domain, test the form, check mobile, and help get the site live.",
   },
 ];
-
-export const pricingIncludes: string[] = [
-  "Custom single-page or small multi-page website",
-  "Mobile-friendly layout",
-  "Clear service sections and calls-to-action",
-  "Contact or estimate form setup",
-  "Basic SEO titles and descriptions",
-  "Domain and hosting connection help",
-  "30 days of small post-launch fixes",
-];
-
-export const navLinks = [
-  { label: "Examples", href: "#portfolio" },
-  { label: "Services", href: "#services" },
-  { label: "Process", href: "#process" },
-  { label: "Pricing", href: "#pricing" },
-  { label: "Contact", href: "#contact" },
-];
-
-export const site = {
-  brand: "Cabriel Lovlie Web Design",
-  phone: "425-293-3543",
-  phoneHref: "tel:+14252933543",
-  email: "CabeKLovlie@gmail.com",
-  emailHref: "mailto:CabeKLovlie@gmail.com",
-  title: "Websites for Local Contractors | Cabriel Lovlie Web Design",
-  description:
-    "Clean, mobile-friendly websites for local contractors and small service businesses with broken, outdated, or missing websites. Portfolio examples, estimate forms, and launch support.",
-};

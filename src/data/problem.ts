@@ -12,7 +12,7 @@ export const problemCards: ProblemCard[] = [
   {
     title: "Outdated mobile experience",
     description:
-      "Most contractor searches happen on phones — a bad mobile site loses leads.",
+      "Most local service business searches happen on phones — a bad mobile site loses leads.",
   },
   {
     title: "Weak or missing project gallery",

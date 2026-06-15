@@ -1,49 +1,112 @@
 ---
-import { portfolioItems } from "../data/portfolio";
+import {
+  featuredPortfolioItems,
+  secondaryPortfolioItems,
+} from "../data/portfolio";
 import PortfolioImage from "./PortfolioImage.astro";
 ---
 
 <section id="portfolio" class="section-padding bg-[var(--evergreen-dk)]">
   <div class="container-main">
     <h2 class="font-heading text-2xl font-semibold text-white md:text-3xl lg:text-4xl">
-      Example contractor websites
+      Example websites for local service businesses
     </h2>
     <p class="mt-4 max-w-3xl text-sm leading-relaxed text-[var(--warm-white)] md:text-base">
-      These are fictional portfolio concepts based on common contractor website
-      needs. They show different styles, service layouts, and conversion flows.
+      These example sites are portfolio concepts based on common needs for local
+      service businesses. They are designed to show layout, messaging, mobile
+      presentation, and conversion flow.
     </p>
 
-    <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:gap-8">
+    <h3 class="mt-10 text-lg font-semibold text-white md:text-xl">
+      Featured Example Sites
+    </h3>
+    <div class="mt-6 grid gap-8 lg:grid-cols-2 lg:gap-10">
       {
-        portfolioItems.map((item) => (
-          <article class="overflow-hidden rounded-lg bg-[var(--evergreen)] shadow-[0_8px_24px_rgba(0,0,0,0.25)]">
+        featuredPortfolioItems.map((item) => (
+          <article class="overflow-hidden rounded-lg bg-[var(--evergreen)] shadow-[0_12px_32px_rgba(0,0,0,0.3)] ring-1 ring-white/10">
             <PortfolioImage name={item.name} src={item.screenshot} />
 
-            <div class="p-5 md:p-6">
-              <span class="inline-block rounded-full bg-[var(--copper-lt)] px-3 py-1 text-xs font-semibold uppercase tracking-wide text-[var(--copper)]">
+            <div class="p-6 md:p-8">
+              <span class="inline-block rounded-full bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-[var(--warm-white)]">
+                Portfolio Concept
+              </span>
+              <span class="ml-2 inline-block rounded-full bg-[var(--copper-lt)] px-3 py-1 text-xs font-semibold uppercase tracking-wide text-[var(--copper)]">
                 {item.category}
               </span>
-              <h3 class="font-heading mt-3 text-xl font-semibold text-white">
+              <h3 class="font-heading mt-4 text-2xl font-semibold text-white">
                 {item.name}
               </h3>
-              <p class="mt-2 text-sm leading-relaxed text-[var(--warm-white)] md:text-base">
+              <p class="mt-3 text-base leading-relaxed text-[var(--warm-white)]">
+                {item.description}
+              </p>
+              {item.bestFor && (
+                <p class="mt-3 text-sm leading-relaxed text-[var(--warm-white)]/90">
+                  <span class="font-semibold text-white">Best for:</span>{" "}
+                  {item.bestFor}
+                </p>
+              )}
+              <a
+                href={item.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-outline btn-outline--white mt-6"
+              >
+                View Example
+              </a>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+
+    <h3 class="mt-14 text-base font-semibold text-[var(--warm-white)] md:text-lg">
+      Additional Portfolio Concepts
+    </h3>
+    <div class="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
+      {
+        secondaryPortfolioItems.map((item) => (
+          <article class="overflow-hidden rounded-lg bg-[var(--evergreen)] shadow-[0_6px_20px_rgba(0,0,0,0.2)]">
+            <PortfolioImage name={item.name} src={item.screenshot} />
+
+            <div class="p-4 md:p-5">
+              <span class="inline-block rounded-full bg-white/10 px-2.5 py-0.5 text-[0.65rem] font-semibold uppercase tracking-wide text-[var(--warm-white)]">
+                Portfolio Concept
+              </span>
+              <span class="ml-1.5 inline-block rounded-full bg-[var(--copper-lt)] px-2.5 py-0.5 text-[0.65rem] font-semibold uppercase tracking-wide text-[var(--copper)]">
+                {item.category}
+              </span>
+              <h3 class="font-heading mt-3 text-lg font-semibold text-white">
+                {item.name}
+              </h3>
+              <p class="mt-2 text-sm leading-relaxed text-[var(--warm-white)]">
                 {item.description}
               </p>
               <a
                 href={item.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="btn-outline btn-outline--white mt-5"
+                class="btn-outline btn-outline--white mt-4 text-sm"
               >
                 View Example
               </a>
-              <p class="mt-4 text-xs italic text-[var(--warm-white)]/80">
-                Portfolio concept — business name fictionalized
-              </p>
             </div>
           </article>
         ))
       }
+    </div>
+
+    <div class="mt-14 rounded-lg bg-[var(--evergreen)] p-6 text-center md:p-10 md:text-left">
+      <h3 class="font-heading text-xl font-semibold text-white md:text-2xl">
+        Want a site like this for your business?
+      </h3>
+      <p class="mt-3 max-w-2xl text-sm leading-relaxed text-[var(--warm-white)] md:text-base">
+        If your current website feels outdated, unclear, or hard to use on a
+        phone, I can help you turn it into a cleaner, more professional site
+        that makes it easier for customers to contact you.
+      </p>
+      <a href="#contact" class="btn-primary btn-primary--evergreen mt-6">
+        Get a Free Website Review
+      </a>
     </div>
   </div>
 </section>
