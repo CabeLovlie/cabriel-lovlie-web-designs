@@ -1,0 +1,47 @@
+---
+import { Check } from "@lucide/astro";
+import { pricingIncludes } from "../data/site";
+---
+
+<section id="pricing" class="section-padding bg-[var(--paper)]">
+  <div class="container-main">
+    <div class="mx-auto max-w-2xl text-center">
+      <h2
+        class="font-heading text-2xl font-semibold text-[var(--ink)] md:text-3xl lg:text-4xl"
+      >
+        Simple one-time pricing
+      </h2>
+      <p class="mt-4 text-base leading-relaxed text-[var(--muted)] md:text-lg">
+        Most contractor websites range from $1,000–$1,500 depending on scope,
+        content, and final launch needs.
+      </p>
+    </div>
+
+    <article
+      class="mx-auto mt-10 max-w-[560px] rounded-lg border-t-[3px] border-t-[var(--copper)] bg-[var(--copper-lt)] p-6 md:p-8"
+    >
+      <h3 class="text-center text-lg font-semibold text-[var(--ink)]">
+        What's included
+      </h3>
+      <ul class="mt-5 space-y-3">
+        {
+          pricingIncludes.map((item) => (
+            <li class="flex items-start gap-3 text-sm text-[var(--ink)] md:text-base">
+              <Check
+                class="mt-0.5 h-5 w-5 shrink-0 text-[var(--evergreen)]"
+                aria-hidden="true"
+              />
+              <span>{item}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </article>
+
+    <p class="mx-auto mt-6 max-w-xl text-center text-sm leading-relaxed text-[var(--muted)]">
+      No required monthly fee. Domain, hosting, email, and third-party service
+      costs are separate and stay owned by you. Static contractor sites can
+      often be hosted for free or very low cost.
+    </p>
+  </div>
+</section>

@@ -1,0 +1,32 @@
+---
+import { serviceFeatures } from "../data/services";
+---
+
+<section id="services" class="section-padding bg-[var(--paper)]">
+  <div class="container-main">
+    <h2
+      class="font-heading max-w-3xl text-2xl font-semibold text-[var(--ink)] md:text-3xl lg:text-4xl"
+    >
+      Simple contractor websites built around trust and estimates.
+    </h2>
+
+    <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:gap-6">
+      {
+        serviceFeatures.map(({ icon: Icon, title, body }) => (
+          <article class="rounded-lg bg-[var(--evergreen-lt)] p-5 md:p-6">
+            <Icon
+              class="mb-4 h-7 w-7 text-[var(--evergreen)]"
+              aria-hidden="true"
+            />
+            <h3 class="text-base font-semibold text-[var(--ink)] md:text-lg">
+              {title}
+            </h3>
+            <p class="mt-2 text-sm leading-relaxed text-[var(--muted)] md:text-base">
+              {body}
+            </p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

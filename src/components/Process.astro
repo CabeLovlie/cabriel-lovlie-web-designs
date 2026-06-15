@@ -1,0 +1,37 @@
+---
+import { processSteps } from "../data/site";
+---
+
+<section id="process" class="section-padding bg-[var(--paper)]">
+  <div class="container-main">
+    <h2
+      class="font-heading text-2xl font-semibold text-[var(--ink)] md:text-3xl lg:text-4xl"
+    >
+      How it works
+    </h2>
+
+    <ol class="mt-10 flex flex-col gap-8 md:mt-14 md:flex-row md:gap-0">
+      {
+        processSteps.map((step, index) => (
+          <li class="relative flex flex-1 flex-col items-center text-center md:px-4">
+            {index < processSteps.length - 1 && (
+              <span
+                class="absolute left-[calc(50%+1.75rem)] top-6 hidden h-0.5 w-[calc(100%-3.5rem)] bg-[var(--rule)] md:block"
+                aria-hidden="true"
+              />
+            )}
+            <div class="font-heading relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-[var(--evergreen)] text-lg font-semibold text-white">
+              {step.number}
+            </div>
+            <h3 class="mt-4 text-lg font-semibold text-[var(--ink)]">
+              {step.title}
+            </h3>
+            <p class="mt-2 max-w-xs text-sm leading-relaxed text-[var(--muted)] md:text-base">
+              {step.body}
+            </p>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>

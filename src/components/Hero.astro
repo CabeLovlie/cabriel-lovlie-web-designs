@@ -1,0 +1,45 @@
+---
+import { heroScreenshots } from "../data/portfolio";
+import PortfolioImage from "./PortfolioImage.astro";
+---
+
+<section id="hero" class="section-padding bg-[var(--paper)]">
+  <div class="container-main">
+    <div class="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+      <div>
+        <h1
+          class="font-heading text-[1.75rem] font-semibold leading-tight text-[var(--ink)] md:text-4xl lg:text-[2.65rem] lg:leading-[1.15]"
+        >
+          Clean, mobile-friendly websites for local contractors who need a
+          better first impression.
+        </h1>
+        <p class="mt-5 max-w-xl text-base leading-relaxed text-[var(--muted)] md:text-lg">
+          I build simple, professional websites that help small service
+          businesses look credible, show their work, and make it easier for
+          customers to request an estimate.
+        </p>
+
+        <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+          <a href="#portfolio" class="btn-primary btn-primary--evergreen">
+            View Example Sites
+          </a>
+          <a href="#contact" class="btn-outline">
+            Request a Website Review
+          </a>
+        </div>
+
+        <p class="mt-6 text-sm text-[var(--muted)]">
+          Contractor-focused · Mobile-friendly · Estimate forms · Launch support
+        </p>
+      </div>
+
+      <div class="grid grid-cols-2 gap-3 md:gap-4">
+        {
+          heroScreenshots.map((item) => (
+            <PortfolioImage name={item.name} src={item.src} />
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

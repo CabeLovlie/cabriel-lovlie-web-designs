@@ -1,0 +1,41 @@
+---
+import { AlertTriangle } from "@lucide/astro";
+import { problemCards } from "../data/problem";
+---
+
+<section id="problem" class="section-padding bg-[var(--paper)]">
+  <div class="container-main">
+    <h2
+      class="font-heading max-w-3xl text-2xl font-semibold text-[var(--ink)] md:text-3xl lg:text-4xl"
+    >
+      Your website should make it easier for customers to contact you.
+    </h2>
+    <p class="mt-5 max-w-3xl text-base leading-relaxed text-[var(--muted)] md:text-lg">
+      Many local contractors have great work, strong reviews, and real project
+      photos — but their website doesn't show that clearly. Some sites are
+      broken, outdated, hard to use on mobile, or missing a clear estimate
+      form.
+    </p>
+
+    <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:gap-6">
+      {
+        problemCards.map((card) => (
+          <article class="rounded-lg border border-[var(--rule)] bg-white p-5 shadow-sm md:p-6">
+            <div class="mb-3 flex items-start gap-3">
+              <AlertTriangle
+                class="mt-0.5 h-5 w-5 shrink-0 text-[var(--copper)]"
+                aria-hidden="true"
+              />
+              <h3 class="text-base font-semibold text-[var(--ink)] md:text-lg">
+                {card.title}
+              </h3>
+            </div>
+            <p class="text-sm leading-relaxed text-[var(--muted)] md:text-base">
+              {card.description}
+            </p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,49 @@
+---
+import { portfolioItems } from "../data/portfolio";
+import PortfolioImage from "./PortfolioImage.astro";
+---
+
+<section id="portfolio" class="section-padding bg-[var(--evergreen-dk)]">
+  <div class="container-main">
+    <h2 class="font-heading text-2xl font-semibold text-white md:text-3xl lg:text-4xl">
+      Example contractor websites
+    </h2>
+    <p class="mt-4 max-w-3xl text-sm leading-relaxed text-[var(--warm-white)] md:text-base">
+      These are fictional portfolio concepts based on common contractor website
+      needs. They show different styles, service layouts, and conversion flows.
+    </p>
+
+    <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:gap-8">
+      {
+        portfolioItems.map((item) => (
+          <article class="overflow-hidden rounded-lg bg-[var(--evergreen)] shadow-[0_8px_24px_rgba(0,0,0,0.25)]">
+            <PortfolioImage name={item.name} src={item.screenshot} />
+
+            <div class="p-5 md:p-6">
+              <span class="inline-block rounded-full bg-[var(--copper-lt)] px-3 py-1 text-xs font-semibold uppercase tracking-wide text-[var(--copper)]">
+                {item.category}
+              </span>
+              <h3 class="font-heading mt-3 text-xl font-semibold text-white">
+                {item.name}
+              </h3>
+              <p class="mt-2 text-sm leading-relaxed text-[var(--warm-white)] md:text-base">
+                {item.description}
+              </p>
+              <a
+                href={item.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-outline btn-outline--white mt-5"
+              >
+                View Example
+              </a>
+              <p class="mt-4 text-xs italic text-[var(--warm-white)]/80">
+                Portfolio concept — business name fictionalized
+              </p>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
