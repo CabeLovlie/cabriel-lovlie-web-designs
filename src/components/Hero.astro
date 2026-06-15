@@ -1,8 +1,3 @@
----
-import { heroScreenshots } from "../data/portfolio";
-import PortfolioImage from "./PortfolioImage.astro";
----
-
 <section id="hero" class="section-padding bg-[var(--paper)]">
   <div class="container-main">
     <div class="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
@@ -33,12 +28,26 @@ import PortfolioImage from "./PortfolioImage.astro";
         </p>
       </div>
 
-      <div class="grid grid-cols-2 gap-3 md:gap-4">
-        {
-          heroScreenshots.map((item) => (
-            <PortfolioImage name={item.name} src={item.src} />
-          ))
-        }
+      <div class="hero-preview" aria-hidden="true">
+        <p class="preview-label">Sample service business sites</p>
+        <div class="preview-stack">
+          <img
+            src="/images/portfolio/northwest-detail-desktop.png"
+            alt="Screenshot of the Northwest Detail Studio homepage showing auto detailing services and a quote-focused layout."
+            class="preview-front"
+            width="600"
+            height="375"
+            loading="eager"
+          />
+          <img
+            src="/images/portfolio/cascade-concrete-desktop.png"
+            alt="Screenshot of the Cascade Concrete Company homepage showing contractor services and estimate request flow."
+            class="preview-back"
+            width="600"
+            height="375"
+            loading="lazy"
+          />
+        </div>
       </div>
     </div>
   </div>

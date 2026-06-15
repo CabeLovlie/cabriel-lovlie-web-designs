@@ -1,12 +1,17 @@
 ---
-import { navLinks, site } from "../data/site";
+import { navLinks } from "../data/site";
 ---
 
 <footer class="bg-[var(--evergreen-dk)] px-5 py-10 md:px-8 md:py-12">
   <div class="container-main text-center md:text-left">
-    <p class="font-heading text-xl font-semibold text-white">
-      {site.brand}
-    </p>
+    <a href="/" class="brand-logo inline-block">
+      <img
+        src="/images/cl-web-designs-logo.png"
+        alt="Cabriel Lovlie Web Design"
+        height="36"
+        loading="lazy"
+      />
+    </a>
     <p class="mt-2 text-sm text-[var(--warm-white)] md:text-base">
       Simple, professional websites for local service businesses.
     </p>

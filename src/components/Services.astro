@@ -12,7 +12,7 @@ import { serviceFeatures } from "../data/services";
 
     <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:gap-6">
       {
-        serviceFeatures.map(({ icon: Icon, title, body }) => (
+        serviceFeatures.map(({ icon: Icon, title, body, screenshot }) => (
           <article class="rounded-lg bg-[var(--evergreen-lt)] p-5 md:p-6">
             <Icon
               class="mb-4 h-7 w-7 text-[var(--evergreen)]"
@@ -24,6 +24,18 @@ import { serviceFeatures } from "../data/services";
             <p class="mt-2 text-sm leading-relaxed text-[var(--muted)] md:text-base">
               {body}
             </p>
+            {
+              screenshot && (
+                <img
+                  src={screenshot.src}
+                  alt={screenshot.alt}
+                  width={screenshot.width}
+                  height={screenshot.height}
+                  loading="lazy"
+                  class={screenshot.class ?? "services-screenshot"}
+                />
+              )
+            }
           </article>
         ))
       }

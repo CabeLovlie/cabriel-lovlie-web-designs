@@ -3,7 +3,6 @@ import {
   featuredPortfolioItems,
   secondaryPortfolioItems,
 } from "../data/portfolio";
-import PortfolioImage from "./PortfolioImage.astro";
 ---
 
 <section id="portfolio" class="section-padding bg-[var(--evergreen-dk)]">
@@ -24,7 +23,14 @@ import PortfolioImage from "./PortfolioImage.astro";
       {
         featuredPortfolioItems.map((item) => (
           <article class="overflow-hidden rounded-lg bg-[var(--evergreen)] shadow-[0_12px_32px_rgba(0,0,0,0.3)] ring-1 ring-white/10">
-            <PortfolioImage name={item.name} src={item.screenshot} />
+            <img
+              src={item.screenshot}
+              alt={item.screenshotAlt}
+              width={item.screenshotWidth}
+              height={item.screenshotHeight}
+              loading="lazy"
+              class="portfolio-screenshot"
+            />
 
             <div class="p-6 md:p-8">
               <span class="inline-block rounded-full bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-[var(--warm-white)]">
@@ -66,7 +72,14 @@ import PortfolioImage from "./PortfolioImage.astro";
       {
         secondaryPortfolioItems.map((item) => (
           <article class="overflow-hidden rounded-lg bg-[var(--evergreen)] shadow-[0_6px_20px_rgba(0,0,0,0.2)]">
-            <PortfolioImage name={item.name} src={item.screenshot} />
+            <img
+              src={item.screenshot}
+              alt={item.screenshotAlt}
+              width={item.screenshotWidth}
+              height={item.screenshotHeight}
+              loading="lazy"
+              class="portfolio-screenshot"
+            />
 
             <div class="p-4 md:p-5">
               <span class="inline-block rounded-full bg-white/10 px-2.5 py-0.5 text-[0.65rem] font-semibold uppercase tracking-wide text-[var(--warm-white)]">

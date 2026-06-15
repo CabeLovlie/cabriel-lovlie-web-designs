@@ -5,6 +5,9 @@ export interface PortfolioItem {
   description: string;
   url: string;
   screenshot: string;
+  screenshotAlt: string;
+  screenshotWidth: number;
+  screenshotHeight: number;
   bestFor?: string;
 }
 
@@ -18,7 +21,11 @@ export const featuredPortfolioItems: PortfolioItem[] = [
     bestFor:
       "A service business that needs strong visuals, clear packages, and easy contact paths.",
     url: "https://northwest-detail-studio.netlify.app/",
-    screenshot: "/images/northwest-detail-screenshot.jpg",
+    screenshot: "/images/portfolio/northwest-detail-desktop.png",
+    screenshotAlt:
+      "Screenshot of the Northwest Detail Studio homepage showing auto detailing service cards and a quote-focused layout.",
+    screenshotWidth: 800,
+    screenshotHeight: 500,
   },
   {
     id: 2,
@@ -29,7 +36,11 @@ export const featuredPortfolioItems: PortfolioItem[] = [
     bestFor:
       "A contractor that needs service clarity, project photos, and estimate requests.",
     url: "https://cascade-concrete-company.netlify.app/",
-    screenshot: "/images/cascade-screenshot.jpg",
+    screenshot: "/images/portfolio/cascade-concrete-desktop.png",
+    screenshotAlt:
+      "Screenshot of the Cascade Concrete Company homepage showing contractor services, project photos, and estimate request messaging.",
+    screenshotWidth: 800,
+    screenshotHeight: 500,
   },
 ];
 
@@ -41,7 +52,11 @@ export const secondaryPortfolioItems: PortfolioItem[] = [
     description:
       "A rugged concept focused on bold branding, before-and-after photos, and a strong quote flow.",
     url: "https://ridgeline-concrete-company.netlify.app/",
-    screenshot: "/images/ridgeline-screenshot.jpg",
+    screenshot: "/images/portfolio/ridgeline-concrete-desktop.png",
+    screenshotAlt:
+      "Screenshot of the Ridgeline Concrete Co. website showing bold branding and a strong quote flow.",
+    screenshotWidth: 600,
+    screenshotHeight: 375,
   },
   {
     id: 4,
@@ -50,7 +65,11 @@ export const secondaryPortfolioItems: PortfolioItem[] = [
     description:
       "A roofing concept built around homeowner trust, documented inspections, and estimate requests.",
     url: "https://cedar-peak-roofing.netlify.app/",
-    screenshot: "/images/cedar-peak-screenshot.jpg",
+    screenshot: "/images/portfolio/cedar-peak-roofing-desktop.png",
+    screenshotAlt:
+      "Screenshot of the Cedar Peak Roofing website showing inspection-focused roofing services and estimate request flow.",
+    screenshotWidth: 600,
+    screenshotHeight: 375,
   },
   {
     id: 5,
@@ -59,14 +78,10 @@ export const secondaryPortfolioItems: PortfolioItem[] = [
     description:
       "A homeowner-friendly remodeling concept for kitchens, bathrooms, flooring, and home updates.",
     url: "https://northwest-home-renewal.netlify.app/",
-    screenshot: "/images/northwest-home-screenshot.jpg",
+    screenshot: "/images/portfolio/northwest-home-renewal-desktop.png",
+    screenshotAlt:
+      "Screenshot of the Northwest Home Renewal website showing a homeowner-friendly remodeling layout.",
+    screenshotWidth: 600,
+    screenshotHeight: 375,
   },
 ];
-
-export const heroScreenshots = [
-  ...featuredPortfolioItems,
-  ...secondaryPortfolioItems.slice(0, 2),
-].map((item) => ({
-  name: item.name,
-  src: item.screenshot,
-}));
